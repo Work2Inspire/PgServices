@@ -1,0 +1,7 @@
+Sample code for Testing Purposes
+--------------------------------------
+
+#open Eureka Server UI:
+localhost:8761
+
+End--------------------------------------------------------------------
