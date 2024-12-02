@@ -1,0 +1,210 @@
+openapi: 3.0.1
+info:
+  title: reservationServiceAPI
+  version: 1.0.0
+paths:
+  /reservations:
+    post:
+      summary: Create new reservation
+      operationId: createRes
+      tags:
+        - Reservation
+        - new
+        - add
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationDto'
+      responses:
+        '201':
+          description: Reservation created successfully
+
+    get:
+      summary: Return all reservation
+      operationId: getAll_Res
+      tags:
+        - Reservation
+        - get
+        - All
+      responses:
+        '200':
+          description: Reservation returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReservationDto'
+
+
+  /reservations/{id}:
+    delete:
+      summary: Remove a reservation
+      operationId: removeRes
+      tags:
+        - Reservation
+        - remove
+        - delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id of reservation to remove
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Reservation returned successfully by id
+        '404':
+          description: Reservation not found
+
+    get:
+      summary: Returns a reservation using its unique identifier
+      operationId: getReservationById
+      tags:
+        - Reservation
+        - Id
+        - get
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id of the reservation to return
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Reservation returned successfully by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationDto'
+        '404':
+          description: reservation not found
+
+    put:
+      summary: Update a reservation
+      operationId: updateReservation
+      tags:
+        - Reservation
+        - update
+        - change
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationDto'
+      parameters:
+        - name: id
+          in: path
+          description: id of a reservation to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Reservation updated successfully
+        '404':
+          description: Reservation not found
+
+
+  /reservations/search:
+    get:
+      summary: search for reservations adhering to criteria
+      operationId: searchReservation
+      tags:
+        - Reservation
+        - search
+        - lookup
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: integer
+            format: int64
+        - name: userId
+          in: query
+          schema:
+            type: integer
+            format: int64
+        - name: carId
+          in: query
+          schema:
+            type: integer
+            format: int64
+        - name: fromDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: toDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: pickUpLocation
+          in: query
+          schema:
+            type: string
+        - name: dropOffLocation
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Reservations returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReservationDto'
+        '404':
+          description: Reservation not found
+
+
+components:
+  schemas:
+    ReservationDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: The unique identifier for the reservation (type Long)
+        userId:
+          type: integer
+          format: int64
+          description: The unique identifier for the user associated with the reservation (type Long)
+        carId:
+          type: integer
+          format: int64
+          description: The unique identifier for the car reserved (type Long)
+        fromDate:
+          type: string
+          format: date
+          description: The starting date of the reservation (type LocalDate)
+        toDate:
+          type: string
+          format: date
+          description: The ending date of the reservation (type LocalDate)
+        pickUpLocation:
+          type: string
+          description: The location where the car will be picked up
+        dropOffLocation:
+          type: string
+          description: The location where the car will be dropped off.
+      required:
+        - id
+        - userId
+        - carId
+        - fromDate
+        - toDate
+        - pickUpLocation
+        - dropOffLocation

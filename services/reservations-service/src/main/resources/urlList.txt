@@ -1,0 +1,15 @@
+Sample code for Testing Purposes
+--------------------------------------
+localhost:9103/reservations
+
+Reservations
+{
+    "id": 1,
+    "userId": 5,
+    "carId": 5,
+    "fromDate": "2021-05-12",
+    "toDate": "2028-07-12",
+    "pickUpLocation": "London",
+    "dropOffLocation": "Moscow"
+}
+End--------------------------------------------------------------------

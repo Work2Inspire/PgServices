@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "fbda7483-35f6-4229-890d-b52b42da110e",
+		"name": "CarCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39437245"
+	},
+	"item": [
+		{
+			"name": "addCar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/add_car",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"add_car"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeCar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/remove_car?vin=ABC123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"remove_car"
+					],
+					"query": [
+						{
+							"key": "vin",
+							"value": "ABC123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCar_byId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9102/api/ctrl/getCar_id?vin=XYZ789",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"getCar_id"
+					],
+					"query": [
+						{
+							"key": "vin",
+							"value": "XYZ789"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAll_cars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/getAllCars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"getAllCars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCars_byMake",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/getCar_make?make=Honda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"getCar_make"
+					],
+					"query": [
+						{
+							"key": "make",
+							"value": "Honda"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCars_byYear",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/getCar_year?year=2021",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"getCar_year"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2021"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCar",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/update/ABC123/a/ADDD22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"update",
+						"ABC123",
+						"a",
+						"ADDD22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAvgMileage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/avg_mileage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"avg_mileage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCheapestCar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/find_cheapest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"find_cheapest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMostExpensive",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/find_Expensive",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"find_Expensive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNewestCar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/find_Newest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"find_Newest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOldestCar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/find_Oldest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"find_Oldest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchCar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9102/api/ctrl/search/Toyota",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9102",
+					"path": [
+						"api",
+						"ctrl",
+						"search",
+						"Toyota"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

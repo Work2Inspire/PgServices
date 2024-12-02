@@ -1,0 +1,190 @@
+openapi: "3.0.1"
+info:
+  title: userServiceAPI
+  version: 1.0.0
+
+paths:
+  /users:
+    post:
+      summary: Adds a new user to the service
+      operationId: addUser
+      tags:
+        - user
+        - new
+        - add
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDto'
+      responses:
+        '201':
+          description: User created successfully
+
+    get:
+      summary: Retrieves a list of all users in the service
+      operationId: getAllUsers
+      tags:
+        - user
+        - All
+        - users
+      responses:
+        '200':
+          description: Users returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDto'
+
+  /users/{id}:
+    delete:
+      summary: Removes a user from the service
+      operationId: removeUser
+      tags:
+        - users
+        - remove
+        - delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id of user to remove
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: User returned successfully by id
+        '404':
+          description: User not found
+
+    get:
+      summary: Retrieves a user from the service based on their unique identifier
+      operationId: getUserById
+      tags:
+        - user
+        - find
+        - id
+        - return
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id of the user to return
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: User returned successfully by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+        '404':
+          description: User not found
+
+    put:
+      summary: Updates the information or attributes of a user
+      operationId: updateUser
+      tags:
+        - user
+        - update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDto'
+      parameters:
+        - name: id
+          in: path
+          description: id of a user to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: User updated successfully
+        '404':
+          description: User not found
+
+
+  /users/search:
+    get:
+      summary: Searches for users based on various criteria, such as first name, date of Birth, etc.
+      operationId: searchUsers
+      tags:
+        - user
+        - search
+        - criteria
+        - get
+        - return
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: integer
+            format: int64
+        - name: firstName
+          in: query
+          schema:
+            type: string
+        - name: lastName
+          in: query
+          schema:
+            type: string
+        - name: dateOfBirth
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: rsaId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Users returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDto'
+        '404':
+          description: User not found
+
+components:
+  schemas:
+    UserDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: The unique identifier for the user (type Long)
+        firstName:
+          type: string
+          description: The first name of the user
+        lastName:
+          type: string
+          description: The last name of the user
+        dateOfBirth:
+          type: string
+          format: date
+          example: "2023-08-11"
+          description: The date of birth of the user (type LocalDate)
+        rsaId:
+          type: string
+          description: The RSA ID (South African ID) of the user
+      required:
+        - userId
+        - firstName
+        - lastName
+        - dateOfBirth
+        - rsaId

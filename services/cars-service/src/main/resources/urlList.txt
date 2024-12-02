@@ -1,0 +1,19 @@
+Sample code for Testing Purposes
+--------------------------------------
+
+Cars
+{
+    "vin": "1",
+    "make": "BMW",
+    "model": "5Series",
+    "year": 2020,
+    "color": "White",
+    "engine": "Engenium",
+    "transmission": "Automatic",
+    "fuelType": "Electric",
+    "mileage": 3200,
+    "price": 32.2,
+    "ownerId": 110,
+    "features": ["shoko","sunRoof"]
+}
+End--------------------------------------------------------------------

@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "667437d0-2532-450a-949e-99c49b2d9bd8",
+		"name": "ResCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39437245"
+	},
+	"item": [
+		{
+			"name": "addReservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/api/ctrl/add_res?id=1&userId=101&vin=202&fromDate=2024-11-01&toDate=2024-11-10&pLocation=NewYork&dLocation=Boston",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"api",
+						"ctrl",
+						"add_res"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "userId",
+							"value": "101"
+						},
+						{
+							"key": "vin",
+							"value": "202"
+						},
+						{
+							"key": "fromDate",
+							"value": "2024-11-01"
+						},
+						{
+							"key": "toDate",
+							"value": "2024-11-10"
+						},
+						{
+							"key": "pLocation",
+							"value": "NewYork"
+						},
+						{
+							"key": "dLocation",
+							"value": "Boston"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeReservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9103/api/ctrl/remove_res/1",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"api",
+						"ctrl",
+						"remove_res",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAll_reservations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9103/api/ctrl/getAll_Res",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"api",
+						"ctrl",
+						"getAll_Res"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateReservation",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/api/ctrl/update/1/a/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"api",
+						"ctrl",
+						"update",
+						"1",
+						"a",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchReservation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/api/ctrl/search/New%20York",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"api",
+						"ctrl",
+						"search",
+						"New%20York"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,15 @@
+Sample code for Testing Purposes
+--------------------------------------
+localhost:9101/users
+
+Users
+{
+    "id": 1,
+    "firstName": "Karabo",
+    "lastName": "Mopana",
+    "dateOfBirth": "2021-02-01",
+    "rsaId": "2323232"
+}
+
+
+End--------------------------------------------------------------------

@@ -1,0 +1,439 @@
+openapi: "3.0.1"
+info:
+  title: carServiceAPI
+  version: 1.0.0
+paths:
+  /cars:
+    post:
+      summary: Create new car
+      operationId: createCar
+      tags:
+        - cars
+        - new
+        - add
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarDto'
+      responses:
+        '201':
+          description: Car created successfully
+
+    get:
+      summary: Return all cars
+      operationId: getAll
+      tags:
+        - car
+        - All
+      responses:
+        '200':
+          description: Cars returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarDto'
+        '404':
+          description: Cars not found
+
+  /cars/{vin}:
+    delete:
+      summary: Find and Delete car using vin (Vehicle Identification Number)
+      operationId: deleteCar
+      tags:
+        - cars
+        - remove
+        - delete
+      parameters:
+        - name: vin
+          in: path
+          required: true
+          description: Vin (Vehicle Identification Number) to find car
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Car returned successfully by id
+        '404':
+          description: Car not found
+
+    get:
+      summary: Find and Return car using vin (Vehicle Identification Number)
+      operationId: getBy_Vin
+      tags:
+        - car
+        - find
+        - id
+        - return
+      parameters:
+        - name: vin
+          in: path
+          required: true
+          description: Id of the car to return
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Car returned successfully by vin
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarDto'
+        '404':
+          description: Car not found
+
+    put:
+      summary: Update car
+      operationId: updateCar
+      tags:
+        - car
+        - update
+      parameters:
+        - name: vin
+          in: path
+          required: true
+          description: Car vin (Vehicle Identification Number) used to retrieve car
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarDto'
+      responses:
+        '200':
+          description: Car updated successfully
+        '404':
+          description: Car not found
+
+
+  /cars/make:
+    get:
+      summary: Find and Return car using make
+      operationId: getBy_make
+      tags:
+        - car
+        - find
+        - make
+        - return
+      parameters:
+        - name: make
+          in: query
+          required: true
+          description: Car make used to retrieve car
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cars returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarDto'
+        '404':
+          description: Cars not found
+
+  /cars/year:
+    get:
+      summary: Find and Return car using year
+      operationId: getBy_year
+      tags:
+        - car
+        - find
+        - year
+        - return
+      parameters:
+        - name: year
+          in: query
+          required: true
+          description: Car year used to retrieve car
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cars returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarDto'
+        '404':
+          description: Cars not found
+
+
+  /cars/color:
+    get:
+      summary: Find and Return car using color
+      operationId: getBy_color
+      tags:
+        - car
+        - find
+        - color
+        - return
+      parameters:
+        - name: color
+          in: query
+          required: true
+          description: Car color used to retrieve car
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cars returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarDto'
+        '404':
+          description: Cars not found
+
+  /cars/avg_mileage:
+    get:
+      summary: Get average mileage
+      operationId: getAvgMileage
+      tags:
+        - avg
+        - mileage
+        - get
+        - return
+      responses:
+        '200':
+          description: Returned avg mileage successfully
+          content:
+            application/json:
+              schema:
+                type: number
+                format: double
+
+  /cars/cheapest:
+    get:
+      summary: Return cheapest car
+      operationId: getCheapest
+      tags:
+        - car
+        - cheapest
+        - get
+        - return
+      responses:
+        '200':
+          description: Returned cheapest car successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarDto'
+        '404':
+          description: Cars not found
+
+  /cars/Expensive:
+    get:
+      summary: Return most expensive car
+      operationId: getExpensive
+      tags:
+        - car
+        - expensive
+        - get
+        - return
+      responses:
+        '200':
+          description: Returned most Expensive car successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarDto'
+        '404':
+          description: Cars not found
+
+  /cars/Newest:
+    get:
+      summary: Return newest car
+      operationId: getNewest
+      tags:
+        - car
+        - newest
+        - get
+        - return
+      responses:
+        '200':
+          description: Returned newest car successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarDto'
+        '404':
+          description: Cars not found
+
+  /cars/Oldest:
+    get:
+      summary: Return oldest car
+      operationId: getOldest
+      tags:
+        - car
+        - oldest
+        - get
+        - return
+      responses:
+        '200':
+          description: Returned oldest car successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarDto'
+        '404':
+          description: Cars not found
+
+  /cars/search:
+    get:
+      summary: Search cars that meet criteria
+      operationId: searchCars
+      tags:
+        - car
+        - search
+        - criteria
+        - get
+        - return
+      parameters:
+        - name: vin
+          in: query
+          schema:
+            type: string
+        - name: make
+          in: query
+          schema:
+            type: string
+        - name: model
+          in: query
+          schema:
+            type: string
+        - name: year
+          in: query
+          schema:
+            type: integer
+        - name: color
+          in: query
+          schema:
+            type: string
+        - name: engine
+          in: query
+          schema:
+            type: string
+        - name: transmission
+          in: query
+          schema:
+            type: string
+            enum:
+              - Automatic
+              - Manual
+              - CVT
+        - name: fuelType
+          in: query
+          schema:
+            type: string
+            enum:
+              - Gasoline
+              - Diesel
+              - Electric
+        - name: mileage
+          in: query
+          schema:
+            type: number
+            format: double
+        - name: Price
+          in: query
+          schema:
+            type: number
+            format: double
+        - name: ownerId
+          in: query
+          schema:
+            type: integer
+            format: int64
+        - name: features
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Cars returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarDto'
+        '404':
+          description: Cars not found
+
+
+components:
+  schemas:
+    CarDto:
+      type: object
+      properties:
+        vin:
+          type: string
+          description: A unique identifier assigned to the car (Vehicle Identification Number)
+        make:
+          type: string
+          description: The car's manufacturer or brand
+        model:
+          type: string
+          description: The specific model name or number
+        year:
+          type: integer
+          description: The year the car was manufactured
+        color:
+          type: string
+          description: The color of the car's exterior
+        engine:
+          type: string
+          description: Details about the car's engine, such as type, displacement, or horsepower
+        transmission:
+          type: string
+          enum:
+            - Automatic
+            - Manual
+            - CVT
+          description: The type of transmission the car has (e.g., manual, automatic)
+        fuelType:
+          type: string
+          enum:
+            - Gasoline
+            - Diesel
+            - Electric
+          description: The type of fuel the car uses (e.g., gasoline, diesel, electric)
+        mileage:
+          type: number
+          format: double
+          description: The number of miles the car has traveled
+        price:
+          type: number
+          format: double
+          description: The price of the car
+        ownerId:
+          type: integer
+          format: int64
+          description: The owner's unique identifier.
+        features:
+          type: array
+          description:
+          items:
+            type: string

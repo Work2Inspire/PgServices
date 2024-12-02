@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "a3b1f660-b07d-4c30-8578-ea9fccf1596d",
+		"name": "UserCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39437245"
+	},
+	"item": [
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9101/api/ctrl/add_user?Id=3&fName=Jojo&lName=Steal&DOB=2001-03-04&rsaId=232323232322",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9101",
+					"path": [
+						"api",
+						"ctrl",
+						"add_user"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "3"
+						},
+						{
+							"key": "fName",
+							"value": "Jojo"
+						},
+						{
+							"key": "lName",
+							"value": "Steal"
+						},
+						{
+							"key": "DOB",
+							"value": "2001-03-04"
+						},
+						{
+							"key": "rsaId",
+							"value": "232323232322"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9101/api/ctrl/remove_user?Id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9101",
+					"path": [
+						"api",
+						"ctrl",
+						"remove_user"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser_byId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9101/api/ctrl/getuser_id?Id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9101",
+					"path": [
+						"api",
+						"ctrl",
+						"getuser_id"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAll_users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9101/api/ctrl/getAll_users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9101",
+					"path": [
+						"api",
+						"ctrl",
+						"getAll_users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9101/api/ctrl/update/1/b/EyeOfTheBeholder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9101",
+					"path": [
+						"api",
+						"ctrl",
+						"update",
+						"1",
+						"b",
+						"EyeOfTheBeholder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchCriteria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9101/api/ctrl/search/Jane",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9101",
+					"path": [
+						"api",
+						"ctrl",
+						"search",
+						"Jane"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
