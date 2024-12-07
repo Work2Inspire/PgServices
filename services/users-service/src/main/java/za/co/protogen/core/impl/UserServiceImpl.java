@@ -6,6 +6,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import za.co.protogen.core.UserService;
@@ -21,9 +22,11 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository,PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder=passwordEncoder;
     }
 
     @Override
@@ -58,12 +61,14 @@ public class UserServiceImpl implements UserService {
             existingUser.setLastName(updatedUser.getLastName());
             existingUser.setDateOfBirth(updatedUser.getDateOfBirth());
             existingUser.setRsaId(updatedUser.getRsaId());
+            existingUser.setUsername(updatedUser.getUsername());
+            existingUser.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
             userRepository.save(existingUser);
         }
     }
 
     @Override
-    public List<User> searchUsers(Long id, String firstName, String lastName, LocalDate dateOfBirth, String rsaId) {
+    public List<User> searchUsers(Long id, String firstName, String lastName, LocalDate dateOfBirth, String rsaId, String username) {
 
         User searchUser = new User();
         searchUser.setId(id);
@@ -71,6 +76,7 @@ public class UserServiceImpl implements UserService {
         searchUser.setLastName(lastName);
         searchUser.setDateOfBirth(dateOfBirth);
         searchUser.setRsaId(rsaId);
+        searchUser.setUsername(username);
 
         // Create an ExampleMatcher
         ExampleMatcher matcher = ExampleMatcher.matchingAny() // Match ANY property

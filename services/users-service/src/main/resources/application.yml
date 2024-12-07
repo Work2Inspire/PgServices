@@ -1,0 +1,10 @@
+users:
+  service:
+  url: http://localhost:9101  # Your users-service URL
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000

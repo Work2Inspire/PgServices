@@ -65,10 +65,10 @@ public class UsersServiceApiController implements UsersApi {
 
 
     @Override
-    public ResponseEntity<List<UserDto>> searchUsers( Long id, String firstName, String lastName, LocalDate dateOfBirth, String rsaId) {
+    public ResponseEntity<List<UserDto>> searchUsers( Long id, String firstName, String lastName, LocalDate dateOfBirth, String rsaId, String username) {
         logger.info("searching all users");
         Long idValue = (id != null) ? id.longValue() : null;
-        List<UserDto> lstUserDto = userMappers.USER_MAPPERS.userEntityToUserDto(userService.searchUsers(idValue, firstName, lastName, dateOfBirth, rsaId));
+        List<UserDto> lstUserDto = userMappers.USER_MAPPERS.userEntityToUserDto(userService.searchUsers(idValue, firstName, lastName, dateOfBirth, rsaId,username));
 
         return ResponseEntity.ok(lstUserDto);
     }

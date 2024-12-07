@@ -18,5 +18,5 @@ public interface UserService {
 
     void updateUser(Long id, User updatedUser);
 
-    List<User> searchUsers(Long id, String firstName, String lastName, LocalDate dateOfBirth, String rsaId );
+    List<User> searchUsers(Long id, String firstName, String lastName, LocalDate dateOfBirth, String rsaId, String username );
 }

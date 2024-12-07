@@ -1,4 +1,4 @@
-package za.co.protogen.persistence;
+package za.co.oauth.repository.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -20,7 +20,7 @@ public class User {
     private LocalDate dateOfBirth;
     @Column(name = "RSA_ID")
     private String rsaId;
-    @Column(name = "Username")
+    @Column(name = "Username",unique = true)
     private String username;
     @Column(name = "Password")
     private String password;
@@ -52,6 +52,7 @@ public class User {
     public String getPassword() {
         return password;
     }
+
 
 
     //setter

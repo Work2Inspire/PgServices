@@ -8,7 +8,9 @@ Users
     "firstName": "Karabo",
     "lastName": "Mopana",
     "dateOfBirth": "2021-02-01",
-    "rsaId": "2323232"
+    "rsaId": "2323232",
+    "username": "MKopna",
+    "password": "s23JRing"
 }
 
 
